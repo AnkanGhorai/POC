@@ -1,0 +1,256 @@
+@import '~office-ui-fabric-react/dist/sass/References.scss';
+
+.gantt {
+  .container {
+    max-width: 700px;
+    margin: 0px auto;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .body {
+    @include ms-Grid-row;
+
+    .leftCol {
+      @include ms-Grid-col;
+      @include ms-sm3;
+      padding-right: 0px;
+    }
+
+    .rightCol {
+      @include ms-Grid-col;
+      @include ms-sm9;
+      padding-left: 0px;
+      //border-left: solid 2px gray;
+    }
+  }
+
+  .row {
+    @include ms-Grid-row;
+    @include ms-fontColor-white;
+    background-color: $ms-color-themeDark;
+    padding: 20px;
+  }
+
+  .column {
+    @include ms-Grid-col;
+    @include ms-lg10;
+    @include ms-xl8;
+    @include ms-xlPush2;
+    @include ms-lgPush1;
+  }
+
+  .title {
+    @include ms-font-xl;
+    @include ms-fontColor-white;
+  }
+
+  .subTitle {
+    @include ms-font-l;
+    @include ms-fontColor-white;
+  }
+
+  .description {
+    @include ms-font-l;
+    @include ms-fontColor-white;
+  }
+  .planList {
+    display: block;
+    border-top: solid thin lightblue;
+  }
+  .planListItem {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0px 18px;
+    box-sizing: border-box;
+    height: 25px;
+    border-bottom: solid 1px lightblue;
+  
+    i {
+      margin-right: 12px;
+      font-size: 12px;
+    }
+  
+    &.completed {
+      opacity: 0.6;
+    }
+  }
+  .monthsRow {
+    display: inline-flex;
+    border: solid 1px lightblue;
+    border-top: 0px;
+    border-left: 0px;
+    height: 45px;
+    align-items: center;
+  
+    .month {
+      font-weight: bold;
+      text-transform: uppercase;
+      border-right: solid 1px lightblue;
+      height: 100%;
+      display: flex;
+      align-items: center;
+  
+      > div {
+        > div {
+          padding-left: 30px;
+          color: lightblue;
+        }
+      }
+  
+      &:last-child {
+        border: 0px;
+      }
+    }
+  }
+  .daysRow {
+    display: inline-flex;
+    border: solid 1px lightblue;
+    border-bottom: 0px;
+    border-top: 0px;
+    border-left: 0px;
+  
+    .day {
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: solid 2px lightblue;
+      font-size: 12px;
+  
+      
+    }
+  }
+  .taskRow {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    background-color: $ms-color-themePrimary;
+    cursor: pointer;
+  
+    .completionAmount {
+      background-color: $ms-color-themeSecondary;
+      height: 70%;
+    }
+  
+    .title {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      overflow: hidden;
+  
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+  }
+  .button {
+    // Our button
+    text-decoration: none;
+    height: 32px;
+
+    // Primary Button
+    min-width: 80px;
+    background-color: $ms-color-themePrimary;
+    border-color: $ms-color-themePrimary;
+    color: $ms-color-white;
+
+    // Basic Button
+    outline: transparent;
+    position: relative;
+    font-family: "Segoe UI WestEuropean","Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: $ms-font-size-m;
+    font-weight: $ms-font-weight-regular;
+    border-width: 0;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 16px;
+
+    .label {
+      font-weight: $ms-font-weight-semibold;
+      font-size: $ms-font-size-m;
+      height: 32px;
+      line-height: 32px;
+      margin: 0 4px;
+      vertical-align: top;
+      display: inline-block;
+    }
+  }
+  .ganttChart {
+    display: block;
+    position: relative;
+    padding-bottom: 50px;
+  
+    .chart {
+      position: relative;
+      display: flex;
+  
+      .grid {
+        display: grid;
+        grid-gap: 0px;
+        border-bottom: solid 1px lightblue;
+        margin-left: -1px;
+    
+        .cell {
+          border-left: 1px solid lightblue;
+          border-top: 1px solid lightblue;
+          border-right: 1px solid lightblue;
+          &.first {
+            border-left: 0px;
+          }
+        }
+      }
+    }
+    .monthsRow {
+      display: inline-flex;
+      border: solid 1px lightblue;
+      border-top: 0px;
+      border-left: 0px;
+      height: 45px;
+      align-items: center;
+    
+      .month {
+        font-weight: bold;
+        text-transform: uppercase;
+        border-right: solid 1px lightblue;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    
+        > div {
+          > div {
+            padding-left: 30px;
+            color: lightblue;
+          }
+        }
+    
+        &:last-child {
+          border: 0px;
+        }
+      }
+    }
+    .daysRow {
+      display: flex;
+      border: solid 1px lightblue;
+      border-bottom: 0px;
+      border-top: 0px;
+      border-left: 0px;
+      border-right: 0px;
+      .day {
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right: solid 1px lightblue;
+        font-size: 12px;
+    
+        &:last-child {
+          border-right: solid 1px lightblue;
+        }
+      }
+    }
+  }
+}
